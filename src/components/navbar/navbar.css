@@ -1,0 +1,14 @@
+.navbar-container{
+    display: flex;
+    justify-content: space-around;
+    border-top: 3px solid #2c4152;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
+}
+h1, h2{
+    margin: 0;
+}
+

@@ -1,0 +1,25 @@
+.cart-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.carttotal-container{
+
+}
+.totalprice{
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.placeorder-btn{
+    background-color: #b19975;
+    border-style: none;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+}
+.placeorder-btn:active{
+    background-color: #84673b;
+}

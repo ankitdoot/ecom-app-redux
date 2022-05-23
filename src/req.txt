@@ -1,0 +1,13 @@
+Ecommerce Practice
+
+You can take ui refrence from any of ecommerce website and you need to build it on   React library and you need to manage state as user can add multiple products also like two mobiles of different brand.
+
+There will be 4 pages .
+
+1. Product listing page :-  there will listing of products tale an example of list of mobile phones and on click of any product it will go to product description page.
+
+2. Product description page:- it have name, description , price , select quantity, add to cart button . When click on add to cart button will change to Go to cart button and on click of this Go to cart btn it will got to cart page.
+
+3. Product Cart Page :- it will show the product , quantity and price according to product quantity and there will be a button buy now , con click of buy now it will redirect to success screen.
+
+4. Product buy success screen:- It will show the header order placed successfully and there will be details of the product which is ordered .
