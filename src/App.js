@@ -5,20 +5,22 @@ import './App.css';
 import Home from './components/home';
 import Productdesc from "./components/product-desc/product-desc";
 import Cart from "./components/cart/cart";
+import Data from './data'
 
 const App = () =>{
   const [products, setProducts] = useState([]);
   const [cartItems,setCartItems]=useState([])
   const addToCart=(newCartItem)=>{
-    console.log(newCartItem)
-    console.log(cartItems)
+    //console.log(newCartItem)
+    //console.log(cartItems)
       setCartItems([...cartItems, newCartItem])
   }
     //console.log('render', products);
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products?limit=20')
+        /*fetch('https://fakestoreapi.com/products?limit=20')
         .then(response => response.json())
-        .then(json => setProducts(json))
+        .then(json => setProducts(json))*/
+        setProducts(Data);
     }, [])
   return(
     <Router>
