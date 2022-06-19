@@ -14,7 +14,7 @@
     justify-content: center;
 }
 .cartproduct-img{
-    max-width: 7rem;
+    width: 7rem;
     max-height: 7rem;
     margin-bottom: 0.5rem;
 }
@@ -46,4 +46,12 @@
 }
 .cartbrand-name{
     text-decoration: none;
+}
+.rem-btn{
+    background-color: #b19975;
+    width: 8rem;
+    height: 1.7rem;
+}
+.rem-input{
+    width: 2rem;
 }

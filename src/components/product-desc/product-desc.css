@@ -1,5 +1,5 @@
 .productdesc-img{
-    width: 15rem;
+    max-width: 20rem;
     max-height: 20rem;
 }
 .productdesc-container{
@@ -33,16 +33,21 @@
     font-size: 0.8rem;
     color: gray;
 }
-.bag-btn{
-    margin-top: 2rem;
-}
 .productdesc-quantity{
     margin-top: 1rem;
 }
 .bag-btn{
+    margin-top: 2rem;
     background-color: #b19975;
     width: 10rem;
     height: 2rem;
+}
+.gotocart-btn{
+    margin-top: 2rem;
+    background-color: rgb(35, 199, 35);
+    width: 10rem;
+    height: 2rem;
+    font-weight: 700;
 }
 #quantity{
     margin-right: 1rem;

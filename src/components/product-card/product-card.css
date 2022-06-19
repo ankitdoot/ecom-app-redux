@@ -43,3 +43,13 @@
     margin: 0;
     margin-top: 0.3rem;
 }
+.addtobag-div{
+    justify-content: center;
+}
+.bag-btnhome{
+    margin: 0.5rem 0;
+    background-color: #b19975;
+    width: 7rem;
+    height: 1.5rem;
+
+}

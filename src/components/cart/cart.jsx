@@ -1,11 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 import CartComponent from '../cart-component/cart-component';
 import './cart.css'
 
-const Cart= ({cartItems}) => {
+const Cart= () => {
+  let cartItems = useSelector((state) => state.cartReducer.value)
   const totalMRP = cartItems.reduce((total, item) =>{
-    return total + item.product.price;
+    return total + item.product.price * item.quantity;
   }, 0);
   return (
     <div className='cart-container'>
