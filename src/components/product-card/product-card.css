@@ -51,5 +51,15 @@
     background-color: #b19975;
     width: 7rem;
     height: 1.5rem;
-
+}
+.addtocart-btn{
+    background-color: #b19975;
+    width: 7rem;
+    padding: 0.2rem 0;
+    }
+.change1-btn{
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: large;
 }

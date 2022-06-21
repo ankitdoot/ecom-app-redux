@@ -4,27 +4,31 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 
 import './cart-component.css';
-import { removeFromCart } from "../../features/cartState";
+import { addToCart, removeFromCart } from "../../features/cartState";
 
 const CartComponent = ({cartItem}) => {
     const dispatch = useDispatch();
-    //const {product:{id, title, price, category, image}, quantity} = cartItem;
     const {product, quantity} = cartItem;
     const {id, title, price, category, image} = product
-    const [removeQuantity, setRemQuantity] = useState(0)
-    /*function delFromCart(){
-        dispatch(removeFromCart(cartItem));
-    }*/
-    function onSubmitHandler(e){
-        e.preventDefault()
+    const [prodQuantity, setProdQuantity] = useState(quantity);
+    const increment = () => {
+        if(prodQuantity >= 5)
+            return
         let newCartObj = {
-            product: product,
-            quantity:removeQuantity
+            product:product,
+            quantity: 1
+        }; 
+        dispatch(addToCart(newCartObj));
+        setProdQuantity(prodQuantity+1)
+    }
+    const decrement = () => {
+        let newCartObj = {
+            product:product,
+            quantity: 1
         }; 
         dispatch(removeFromCart(newCartObj));
-        setRemQuantity(0)
+        setProdQuantity(prodQuantity-1)
     }
-    //<button onClick={delFromCart}>Remove from Cart</button>
     return(
         <div className="cart-detail" >
             <div className='cartimg-div'>
@@ -37,12 +41,13 @@ const CartComponent = ({cartItem}) => {
                 </Link>
                 <p className='cartproduct-category'>{category}</p>
                 <p className='cartproduct-price'>₹{price}</p>
-                <p className='cartproduct-quantity'>Qty: {quantity}</p> 
-                <p>Total Price: {price*quantity}</p>
-                <form onSubmit={onSubmitHandler}>
-                    <input type="number" id="quantity"  min="0" max={quantity} value={removeQuantity} onChange={(e)=>setRemQuantity(e.target.value) }  className='rem-input'/>
-                    <input type='submit' value={"Remove from Cart"} className='rem-btn'/>
-                </form>
+                <div className="rmv-btn-container">
+                    <button onClick={decrement} className='change1-btn'>-</button>
+                    <button className='change1-btn'>{prodQuantity}</button>
+                    <button onClick={increment} className='change1-btn'>+</button>
+                </div>
+                <p>Total Price: {(price*quantity).toFixed(2)}</p>
+                
             </div>
         </div>
     )

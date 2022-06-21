@@ -1,24 +1,39 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import './product-desc.css'
-import {addToCart} from '../../features/cartState';
+import {addToCart, removeFromCart} from '../../features/cartState';
 
 const Productdesc = ({product}) => {
     const {category, description, image, price, title, rating:{rate, count}} = product;
-    const [quantity, setQuantity] = useState(0)
-    const [gotocart, setGoToCart] = useState(false)
+    const [quantty, setQuantity] = useState(0)
     const dispatch = useDispatch();
-    const onSubmitHandler = (e) => {
+    const onSubmitHandler = (e) =>{
         e.preventDefault()
-        setGoToCart(true)
         let newCartObj = {
             product:product,
-            quantity:quantity
+            quantity: 1
         }; 
         dispatch(addToCart(newCartObj));
-        setQuantity(0)
+        setQuantity(1)
+    }
+    const increment = () => {
+        if(quantty === 5)
+            return
+        let newCartObj = {
+            product:product,
+            quantity: 1
+        }; 
+        dispatch(addToCart(newCartObj));
+        setQuantity(quantty+1)
+    }
+    const decrement = () => {
+        let newCartObj = {
+            product:product,
+            quantity: 1
+        }; 
+        dispatch(removeFromCart(newCartObj));
+        setQuantity(quantty-1)
     }
   return (
     <div className='productdesc-container'>
@@ -29,17 +44,13 @@ const Productdesc = ({product}) => {
             <p className='productdesc-desc'>{description}</p>
             <p className='productdesc-price'>₹{price}</p>
             <p className='productdesc-rating'>{rate}✰ | {count} Ratings</p>
-            <form onSubmit={onSubmitHandler}>
-                {gotocart ?
-                <Link to="/cart" className="brand-name">
-                    <button className='gotocart-btn' >GO TO CART</button>
-                </Link> :
-                <div>
-                    <label htmlFor="quantity" className='qty-label'>Quantity:</label>
-                    <input type="number" id="quantity"  min="1" max="5" value={quantity} onChange={(e)=>setQuantity(e.target.value)} />
-                    <input type='submit' value={"ADD TO BAG"} className='bag-btn'/>
-                </div>}
-            </form>
+            {quantty === 0 ?
+            <button type='submit' onClick={onSubmitHandler} className='bag-btn'>ADD TO Cart</button> :
+            <div>
+                <button onClick={decrement} className='change-btn'>-</button>
+                <button className='change-btn'>{quantty}</button>
+                <button onClick={increment} className='change-btn'>+</button>
+            </div>}
         </div>
     </div>
   )

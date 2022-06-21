@@ -14,6 +14,8 @@ const cartSlice = createSlice({
             let isItemInCart = false;
             for(let i = 0; i < state.value.length; i++){
                 if(state.value[i].product.id === prodID){
+                    if(state.value[i].quantity >= 5)
+                        return
                     let newQuantity = parseInt(state.value[i].quantity) + parseInt(quantity);
                     state.value[i].quantity =  newQuantity;
                     isItemInCart = true;
